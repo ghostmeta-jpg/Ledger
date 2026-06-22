@@ -1,0 +1,29 @@
+{
+  "name": "ledger-survivors",
+  "version": "1.0.0",
+  "description": "Ledger Survivors — a roguelite arcade survivor. The bills are due. You are not.",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "serve": "npx --yes serve -l 8080 .",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux",
+    "dist:mac": "electron-builder --mac"
+  },
+  "author": "ghostmeta-jpg",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.ghostmeta.ledgersurvivors",
+    "productName": "Ledger Survivors",
+    "files": ["index.html", "src/**/*", "electron/**/*", "assets/**/*"],
+    "directories": { "output": "build" },
+    "win": { "target": "dir" },
+    "linux": { "target": "dir", "category": "Game" },
+    "mac": { "target": "dir" }
+  }
+}

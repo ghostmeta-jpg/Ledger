@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ledger Survivors</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" width="960" height="540"></canvas>
+
+    <!-- Title screen -->
+    <div id="title" class="overlay">
+      <h1>LEDGER<span>SURVIVORS</span></h1>
+      <p class="tag">The bills are due. You are not.</p>
+      <button id="startBtn" class="btn">START SHIFT</button>
+      <ul class="controls">
+        <li><b>WASD</b> / <b>Arrows</b> — move</li>
+        <li>Weapons fire automatically</li>
+        <li>Collect <b>coins</b> to level up &amp; pick upgrades</li>
+        <li>Survive as long as you can</li>
+      </ul>
+    </div>
+
+    <!-- Level-up screen -->
+    <div id="levelup" class="overlay hidden">
+      <h2>PROMOTION</h2>
+      <p class="sub">Choose one upgrade</p>
+      <div id="choices" class="choices"></div>
+    </div>
+
+    <!-- Game over screen -->
+    <div id="gameover" class="overlay hidden">
+      <h2>BANKRUPT</h2>
+      <p id="finalStats" class="sub"></p>
+      <button id="retryBtn" class="btn">NEW SHIFT</button>
+    </div>
+  </div>
+  <script src="src/game.js"></script>
+</body>
+</html>

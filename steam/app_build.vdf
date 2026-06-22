@@ -1,0 +1,21 @@
+"AppBuild"
+{
+  "AppID" "480"            // <-- replace with your real Steam App ID
+  "Desc"  "Ledger Survivors 1.0.0"
+
+  "ContentRoot" "../build/"
+  "BuildOutput" "./output/"
+
+  "Depots"
+  {
+    "481"                  // <-- replace with your real Depot ID
+    {
+      "FileMapping"
+      {
+        "LocalPath" "*"
+        "DepotPath" "."
+        "Recursive" "1"
+      }
+    }
+  }
+}

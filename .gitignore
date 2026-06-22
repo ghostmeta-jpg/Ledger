@@ -1,0 +1,6 @@
+node_modules/
+build/
+dist/
+steam/output/
+*.log
+.DS_Store
