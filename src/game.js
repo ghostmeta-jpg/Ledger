@@ -18,6 +18,9 @@
   const finalStatsEl = document.getElementById("finalStats");
   document.getElementById("startBtn").onclick = startGame;
   document.getElementById("retryBtn").onclick = startGame;
+  document.getElementById("titleBtn").onclick = () => {
+    gameoverEl.classList.add("hidden"); titleEl.classList.remove("hidden"); Gacha.refresh(); state = "title";
+  };
 
   // ---- Input --------------------------------------------------------------
   const keys = {};
@@ -41,8 +44,8 @@
   let player, enemies, bullets, gems, particles, orbs;
   let time, spawnTimer, killCount, difficulty, screenShake, frozen;
 
-  function defaultPlayer() {
-    return {
+  function defaultPlayer(c) {
+    const p = {
       x: W / 2, y: H / 2, r: 12,
       speed: 2.6, hp: 100, maxHp: 100,
       level: 1, xp: 0, xpToNext: 5,
@@ -58,7 +61,12 @@
       dmgMult: 1, fireRateMult: 1, projectiles: 1,
       cooldowns: { stapler: 0, audit: 0 },
       orbAngle: 0,
+      icon: c.icon, color: c.color,
     };
+    Object.assign(p, c.stats);
+    Object.assign(p.weapons, c.weapons);
+    p.dmgMult += 0.1 * c.dupes; // Sequences: +10% dmg per dupe, S6 max
+    return p;
   }
 
   // ---- Upgrade pool -------------------------------------------------------
@@ -94,7 +102,7 @@
 
   // ---- Lifecycle ----------------------------------------------------------
   function startGame() {
-    player = defaultPlayer();
+    player = defaultPlayer(Gacha.selected());
     enemies = []; bullets = []; gems = []; particles = []; orbs = [];
     time = 0; spawnTimer = 0; killCount = 0; difficulty = 1;
     screenShake = 0; frozen = false;
@@ -106,9 +114,10 @@
 
   function gameOver() {
     state = "dead";
+    const earned = Gacha.earn(Math.round(time) + killCount * 2);
     finalStatsEl.innerHTML =
       `Survived <b>${fmtTime(time)}</b> &nbsp;·&nbsp; Level <b>${player.level}</b> ` +
-      `&nbsp;·&nbsp; <b>${killCount}</b> bills shredded`;
+      `&nbsp;·&nbsp; <b>${killCount}</b> bills shredded &nbsp;·&nbsp; earned <b>+${earned} 💸</b>`;
     gameoverEl.classList.remove("hidden");
   }
 
@@ -437,10 +446,10 @@
 
     // player
     if (!(player.iframe > 0 && (player.iframe >> 2) & 1)) {
-      ctx.fillStyle = "#4dd0ff";
+      ctx.fillStyle = player.color;
       ctx.beginPath(); ctx.arc(player.x, player.y, player.r, 0, TAU); ctx.fill();
       ctx.fillStyle = "#0c0f1a"; ctx.font = "13px sans-serif";
-      ctx.fillText("🧑‍💼", player.x, player.y + 1);
+      ctx.fillText(player.icon, player.x, player.y + 1);
     }
 
     ctx.restore();

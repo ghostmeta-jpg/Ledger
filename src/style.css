@@ -112,3 +112,20 @@ h2 {
 .card .name { margin: 8px 0 6px; font-size: 17px; color: var(--gold); letter-spacing: 1px; }
 .card .desc { font-size: 13px; color: #9aa6c4; line-height: 1.4; }
 .card .lvl { margin-top: 10px; font-size: 12px; color: var(--accent); letter-spacing: 1px; }
+
+/* ---- gacha ---- */
+.row { display: flex; gap: 12px; }
+.btn.alt { background: var(--accent); box-shadow: 0 5px 0 #1d7fa3; }
+.btn.alt:hover { box-shadow: 0 7px 0 #1d7fa3; }
+.btn.alt:active { box-shadow: 0 2px 0 #1d7fa3; }
+.sub.small { font-size: 12px; margin-top: -8px; }
+.roster { flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 900px; }
+.roster .card { width: 104px; padding: 10px 6px; }
+.roster .card .icon { font-size: 26px; }
+.roster .card .name { font-size: 12px; margin: 4px 0 2px; }
+.roster .card .desc { font-size: 11px; }
+.card.r5 { border-color: var(--gold); box-shadow: 0 0 14px rgba(255, 207, 77, 0.35); }
+.card.r4 { border-color: #c46bff; }
+.card.r3 { border-color: #4a7bd0; }
+.card.locked { opacity: 0.35; filter: grayscale(1); }
+.card.selected { background: rgba(77, 208, 255, 0.15); border-color: var(--accent); }
