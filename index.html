@@ -14,13 +14,27 @@
     <div id="title" class="overlay">
       <h1>LEDGER<span>SURVIVORS</span></h1>
       <p class="tag">The bills are due. You are not.</p>
-      <button id="startBtn" class="btn">START SHIFT</button>
+      <div id="roster" class="choices roster"></div>
+      <div class="row">
+        <button id="startBtn" class="btn">START SHIFT</button>
+        <button id="summonBtn" class="btn alt">SUMMON · 💸 <span class="payslips"></span></button>
+      </div>
       <ul class="controls">
-        <li><b>WASD</b> / <b>Arrows</b> — move</li>
-        <li>Weapons fire automatically</li>
-        <li>Collect <b>coins</b> to level up &amp; pick upgrades</li>
-        <li>Survive as long as you can</li>
+        <li><b>WASD</b> / <b>Arrows</b> move · weapons auto-fire · grab <b>coins</b> to level up · pick a clerk above</li>
       </ul>
+    </div>
+
+    <!-- Summon (gacha) screen -->
+    <div id="summon" class="overlay hidden">
+      <h2>SUMMON</h2>
+      <p class="sub">Featured: 💼 The CFO &nbsp;·&nbsp; 5★ 0.8% &nbsp;·&nbsp; 4★ 6% &nbsp;·&nbsp; 160 💸 per pull</p>
+      <p id="pity" class="sub small"></p>
+      <div id="pulls" class="choices roster"></div>
+      <div class="row">
+        <button id="pull1" class="btn">PULL ×1</button>
+        <button id="pull10" class="btn">PULL ×10</button>
+        <button id="summonBack" class="btn alt">BACK · 💸 <span class="payslips"></span></button>
+      </div>
     </div>
 
     <!-- Level-up screen -->
@@ -34,9 +48,13 @@
     <div id="gameover" class="overlay hidden">
       <h2>BANKRUPT</h2>
       <p id="finalStats" class="sub"></p>
-      <button id="retryBtn" class="btn">NEW SHIFT</button>
+      <div class="row">
+        <button id="retryBtn" class="btn">NEW SHIFT</button>
+        <button id="titleBtn" class="btn alt">TITLE / SUMMON</button>
+      </div>
     </div>
   </div>
+  <script src="src/gacha.js"></script>
   <script src="src/game.js"></script>
 </body>
 </html>

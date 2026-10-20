@@ -35,6 +35,18 @@ Survive as long as you can and rack up the kill count.
 - Particle juice, screen shake, hit flashes, i-frames
 - Endless difficulty scaling and a run-summary game-over screen
 
+## 🎰 Summon (gacha)
+Every shift pays out **payslips 💸** (1 per second survived + 2 per kill). Spend them on the
+**SUMMON** banner from the title screen — 160 per pull, Wuthering-Waves-style rates:
+- **5★ 0.8%**, soft pity from pull 66, hard pity at **80**
+- **4★ 6%**, one guaranteed every **10** pulls
+- **50/50** on the featured 5★ (💼 The CFO); losing it guarantees the next one
+- Duplicates raise a character's **Sequence** (+10% damage each, up to S6)
+- 3★ stationery refunds 20 💸
+
+Pick any owned clerk on the title screen; each has its own stats and starting weapons.
+Progress is saved in `localStorage`. You start with 1600 💸 (one ×10).
+
 ## 🚀 Ship it on Steam ($7.99)
 The repo is structured for Steam distribution:
 
