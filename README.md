@@ -35,6 +35,9 @@ Survive as long as you can and rack up the kill count.
 - Particle juice, screen shake, hit flashes, i-frames
 - Endless difficulty scaling and a run-summary game-over screen
 
+## 🟥 Roblox spin-off
+An original Roblox companion game, **Overdue: Audit Arena**, lives in [`roblox/`](roblox/README.md).
+
 ## 🚀 Ship it on Steam ($7.99)
 The repo is structured for Steam distribution:
 
